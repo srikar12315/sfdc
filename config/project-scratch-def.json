@@ -1,0 +1,30 @@
+{
+  "orgName": "Srini-LWC-Udemy",
+  "edition": "Enterprise",
+  "features": [
+    "Communities",
+    "MultiCurrency" , 
+    "ContactsToMultipleAccounts",
+    "CascadeDelete",
+    "Communities",
+    "PersonAccounts",
+    "StateAndCountryPicklist",
+    "Entitlements",
+    "LiveAgent"
+],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "omniChannelSettings": {
+      "enableOmniChannel": true
+  },
+  "caseSettings": {
+    "systemUserEmail": "bandisrinu84@gmail.com"
+},
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    }
+  }
+}
+

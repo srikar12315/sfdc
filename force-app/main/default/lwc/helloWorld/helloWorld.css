@@ -1,0 +1,10 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+h1{
+    color: chartreuse;
+}
+p{
+    color: crimson;
+    font-size: 22px;
+}
