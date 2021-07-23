@@ -48,6 +48,7 @@ global class AccountManagemantRestClass {
       }
     }
 
+    /********************* 
     @HttpPost
     global static Account postAccount(String accName, String accountNumber, String industry, String description){
 
@@ -57,6 +58,39 @@ global class AccountManagemantRestClass {
 
        return newAccount;
 
+                    <request>
+                <infomation>
+                <accountInfo> 
+                    <Name> FromXml Post </Name>
+                </accountInfo>
+                <contactInfo>
+                <FirstName> Fname</FirstName>
+                    <LastName> Lname </LastName>
+                </contactInfo>
+                </infomation>
+
+                </request>
+    }
+     */
+   
+
+    @HttpPost
+    global static postAccountWarpper postAccount(postAccountWarpper infomation){
+
+        Account accountRecord = infomation.accountInfo;
+        insert accountRecord;
+
+        Contact contactRecord = infomation.contactInfo;
+        contactRecord.AccountId =accountRecord.Id;
+        Insert contactRecord;
+ 
+
+        return infomation;
+    }
+   
+    global class postAccountWarpper{
+        Account accountInfo {set;get;}
+        Contact contactInfo {set;get;}
     }
 
     @HttpGet
