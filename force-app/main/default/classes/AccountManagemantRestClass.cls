@@ -23,7 +23,7 @@ global class AccountManagemantRestClass {
                 wrapper.contactList=contactList;
                 wrapper.opportunityList=opportunityList;
                 wrapper.caseList=caseList;
-                wrapper.Restmessage ='Fetching All Accounts, Contacts and cases ';
+                wrapper.Restmessage ='Fetching All Accounts, Contacts and cases '+ ' '+accountList;
                 }
         return wrapper;
 
