@@ -8,7 +8,7 @@ global class AccountManagemantRestClass {
         String requestURI = req.RequestURI;
         String accountId = requestURI.subStringafterlast('/');
 
-        List<Account> accountList = [select id,Name from Account where Id=:accountId ];
+        List<Account> accountList = [select id,Name,phone,Description from Account where Id=:accountId ];
         List<Contact> contactList = [select Id, FirstName, Email from Contact where accountId=:accountId];
         List<Opportunity> opportunityList = [select id, Name from Opportunity where AccountId=:accountId];
         List<Case> caseList =[select id,casenumber from case where accountId=:accountId];
