@@ -1,6 +1,26 @@
 @RestResource(urlmapping='/v1/AccountRest/*')
 global class AccountManagemantRestClass {
 
+    @httpDelete
+    global static String deleteAccount(){
+
+      RestRequest req = RestContext.request;
+      String requestURI = req.RequestURI;
+      String accountId = requestURI.subStringafterlast('/');
+
+      List<Account> accountList =[Select Id, Name from Account where Id=:accountId];
+      
+      if(accountList.size()>0){
+        Delete accountList;
+        return 'Account Deleted';
+      }else{
+          return 'No Account Found';
+      }
+     
+
+
+    }
+
     @HttpPost
     global static Account postAccount(String accName, String accountNumber, String industry, String description){
 
