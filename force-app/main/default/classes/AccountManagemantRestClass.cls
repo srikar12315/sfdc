@@ -22,8 +22,6 @@ global class AccountManagemantRestClass {
             wrapper.message='Account not found';
         }
         return wrapper;
-
-
         
     }
 
