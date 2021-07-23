@@ -1,6 +1,17 @@
 @RestResource(urlmapping='/v1/AccountRest/*')
 global class AccountManagemantRestClass {
-    
+
+    @HttpPost
+    global static Account postAccount(String accName, String accountNumber, String industry, String description){
+
+             
+        Account newAccount = New Account(Name=accName, AccountNumber = accountNumber, Industry = industry, Description = description);
+        insert newAccount;
+
+       return newAccount;
+
+    }
+
     @HttpGet
     global static AccountWarpper getAccountDetails(){
 
