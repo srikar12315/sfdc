@@ -89,8 +89,8 @@ global class AccountManagemantRestClass {
     }
    
     global class postAccountWarpper{
-        Account accountInfo {set;get;}
-        Contact contactInfo {set;get;}
+        global Account accountInfo {set;get;}
+        global Contact contactInfo {set;get;}
     }
 
     @HttpGet
@@ -115,7 +115,7 @@ global class AccountManagemantRestClass {
                 wrapper.contactList=contactList;
                 wrapper.opportunityList=opportunityList;
                 wrapper.caseList=caseList;
-                wrapper.Restmessage ='Fetching All Accounts, Contacts and cases '+ ' '+accountList;
+                //wrapper.Restmessage ='Fetching All Accounts, Contacts and cases '+ ' '+accountList;
                 }
         return wrapper;
 
@@ -126,7 +126,7 @@ global class AccountManagemantRestClass {
         global List<Contact> contactList;
         global List<Opportunity> opportunityList;
         global List<Case> caseList;
-        global String Restmessage;
+        //global String Restmessage;
     }
    
     
