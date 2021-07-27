@@ -6,7 +6,7 @@ global class AccountManagemantRestClass {
 
         RestRequest request = RestContext.request;
         String requestURI = request.RequestURI;
-        String accountId =requestURI.substringAfterLast('/');
+        String accountId = requestURI.substringAfterLast('/');
         List<Account> accountList = [select Id from Account where Id=:accountId];
         Account accRec;
         updateAccountWrapper wrapper = new updateAccountWrapper();
@@ -102,18 +102,18 @@ global class AccountManagemantRestClass {
 
         List<Account> accountList = [select id,Name,phone,Description from Account where Id=:accountId ];
         List<Contact> contactList = [select Id, FirstName, Email from Contact where accountId=:accountId];
-        List<Opportunity> opportunityList = [select id, Name from Opportunity where AccountId=:accountId];
+      //  List<Opportunity> opportunityList = [select id, Name from Opportunity where AccountId=:accountId];
         List<Case> caseList =[select id,casenumber from case where accountId=:accountId];
         
 
         AccountWarpper wrapper = new AccountWarpper();
 
-           if(accountList !=null && accountList.size()>0)
+           if(!accountList.isEmpty())
                 {
                 
                 wrapper.accountRecord =accountList.get(0);
                 wrapper.contactList=contactList;
-                wrapper.opportunityList=opportunityList;
+               // wrapper.opportunityList=opportunityList;
                 wrapper.caseList=caseList;
                 //wrapper.Restmessage ='Fetching All Accounts, Contacts and cases '+ ' '+accountList;
                 }
@@ -124,7 +124,7 @@ global class AccountManagemantRestClass {
     global class AccountWarpper{
         global Account accountRecord;
         global List<Contact> contactList;
-        global List<Opportunity> opportunityList;
+        //global List<Opportunity> opportunityList;
         global List<Case> caseList;
         //global String Restmessage;
     }

@@ -11,6 +11,7 @@ public class AccountManagemantRestClassTest {
       
         Test.startTest();
         AccountManagemantRestClass.AccountWarpper wrapper = AccountManagemantRestClass.getAccountDetails();
+        system.debug('$$$$$$$$'+wrapper);
         system.assertNotEquals(null, wrapper);
         Test.stopTest();
 
@@ -49,6 +50,20 @@ public class AccountManagemantRestClassTest {
         
     }
 
+    public static testMethod void updateAccountTest_Else(){
+
+        String recordId =createTestRecord();
+        String url ='/services/apexrest/v1/AccountRest/'+recordId+1;
+        RestRequest request = new RestRequest();
+        request.requestURI=url;
+        request.httpMethod='PATCH';
+        RestContext.request=request;
+        test.startTest();
+        AccountManagemantRestClass.updateAccount('MyName', '123456');
+        test.stopTest();
+        
+    }
+
     public static testMethod void deleteAccountTest(){
      String recordId =createTestRecord();
      String url='/services/apexrest/v1/AccountRest/'+recordId;
@@ -71,6 +86,7 @@ public class AccountManagemantRestClassTest {
         Contact TestCon= new Contact(
         LastName='Test', 
         AccountId = TestAcc.id);
+        insert TestCon;
         
         return TestAcc.Id;
     }      
