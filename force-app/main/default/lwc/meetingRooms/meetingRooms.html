@@ -1,0 +1,23 @@
+<template>
+        <lightning-card title="Meeting Rooms" icon-name="standard:household">
+            <lightning-input type="checkbox" label="Show Rooms" onchange={showCheckboxhandler}></lightning-input>
+            <lightning-layout>
+               <lightning-layout-item size="6" padding="around-small">
+                <ul>
+                    <template for:each={meetingRoomsInfo} for:item="room">
+                        <li key={room.roomName} style="padding: 1px">
+                            <c-meeting-room meeting-room-info={room} show-rooms={chkBox}></c-meeting-room>
+                        </li>
+                    </template>
+               </ul> 
+               </lightning-layout-item >
+               <lightning-layout-item size="6" padding="around-small">
+                 you have selected :{selectedMeetingRoom} <br/>
+                 Room Details:{selectedMeetingRoomDetails}
+               </lightning-layout-item>
+
+
+            </lightning-layout>
+           
+    </lightning-card>
+</template>

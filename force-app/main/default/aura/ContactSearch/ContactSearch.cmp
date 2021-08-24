@@ -1,0 +1,38 @@
+<aura:component controller="ListContactComponentCtrl" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="data" type="Contact[]"/>
+    <aura:attribute name="unfilteredData" type="Contact[]"/>
+    <aura:attribute name="filter" type="String"/>
+    <aura:handler name="change" value="{!v.filter}" action="{!c.doFilter}"/>
+    <div class="slds-page-header">my Contacts</div>
+    <lightning:input name="x" value="{!v.filter}" label="Filter" placeholder="Search Contact By Name"/>
+    <table class="slds-table slds-table--bordered">
+        <thead>
+        <tr>
+            <th>S.No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        <aura:iteration items="{!v.data}" var="row" indexVar="rowindex">
+            <tr>
+            <td>{!rowindex + 1}</td>
+            <td>{!row.Id}</td>
+             <td>{!row.Name}</td>
+             <td>{!row.Email}</td>
+            </tr>
+            
+        </aura:iteration>
+            
+            
+            
+        </tbody>
+    
+    
+    </table>
+    
+    
+</aura:component>

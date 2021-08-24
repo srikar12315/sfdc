@@ -1,0 +1,5 @@
+<aura:component >
+    <c:helloHeading/>
+	<p>Welcome to my lighting page</p>
+    
+</aura:component>

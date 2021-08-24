@@ -1,0 +1,14 @@
+<apex:page standardController="Account" extensions="SOQLExample">
+    <apex:form >
+    <apex:inputText value="{! industry}"/>
+        <apex:commandButton value="Search Account" action="{!getData}"/><br/><br/>
+        <apex:pageBlock title="Account Records" rendered="{! !ISNULL(accs)}" >
+          <apex:pageBlockTable value="{!accs}" var="a">
+              <apex:column value="{!a.name}"/>
+              <apex:column value="{!a.industry}"/>
+            
+            </apex:pageBlockTable>  
+        
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

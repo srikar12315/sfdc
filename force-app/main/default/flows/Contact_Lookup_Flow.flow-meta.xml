@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <interviewLabel>Contact Lookup Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contact Lookup Flow</label>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Contact_Record_Lookup</name>
+        <label>Contact Record Lookup</label>
+        <locationX>194</locationX>
+        <locationY>236</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Display_Contact_Details</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>LastName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Last_Name</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputAssignments>
+            <assignToReference>Returned_Department</assignToReference>
+            <field>Department</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>Returned_First_Name</assignToReference>
+            <field>FirstName</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>Returned_Last_Nam</assignToReference>
+            <field>LastName</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>Returned_Title</assignToReference>
+            <field>Title</field>
+        </outputAssignments>
+    </recordLookups>
+    <screens>
+        <name>Display_Contact_Details</name>
+        <label>Display Contact Details</label>
+        <locationX>194</locationX>
+        <locationY>376</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>ContactDetailsText</name>
+            <fieldText>Below are the contact details you are looking for
+
+First Name:{!Returned_First_Name}
+
+Last Name:{!Returned_Last_Nam}
+
+Contact Department:{!Returned_Department}
+
+Conact Title: {!Returned_Title}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Intro_Screen</name>
+        <label>Intro Screen</label>
+        <locationX>191</locationX>
+        <locationY>107</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Contact_Record_Lookup</targetReference>
+        </connector>
+        <fields>
+            <name>Last_Name_text</name>
+            <fieldText>Enter the last name of the customer you looking for</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Last_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Last Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <startElementReference>Intro_Screen</startElementReference>
+    <status>Draft</status>
+    <variables>
+        <name>Returned_Department</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Returned_First_Name</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Returned_Last_Nam</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Returned_Title</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,12 @@
+<apex:page controller="Schema1" id="one">
+    <apex:form >
+    <apex:selectList size="1" value="{!selected}">
+        <apex:selectOptions value="{!objects}"/> 
+        <apex:actionSupport event="onchange" action="{!show}" reRender="one"/>
+        </apex:selectList><br/><br/>
+    <apex:selectList size="1" id="one">
+        <apex:selectOptions value="{!fields}"/> 
+     </apex:selectList>
+    </apex:form>
+    
+</apex:page>

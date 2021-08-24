@@ -1,0 +1,119 @@
+<apex:page controller="ButtonsExamples" >
+<apex:form >
+<apex:pageBlock Title=" Command button pageblock ">
+<apex:pageblockButtons >
+<apex:commandButton value="Button 1"/>
+<apex:commandButton value="Button 2"/>
+<apex:commandButton value="Button 3"/>
+</apex:pageblockButtons>
+
+</apex:pageBlock>
+
+<apex:pageBlock Title=" Command button pageblock ">
+<apex:pageblockButtons location="top">
+<apex:commandButton value="Button 1"/>
+<apex:commandButton value="Button 2"/>
+<apex:commandButton value="Button 3"/>
+</apex:pageblockButtons>
+
+</apex:pageBlock>
+
+
+
+<apex:pageblock title="Button">
+        
+        <apex:commandButton value="Button 1"/>
+        
+    
+</apex:pageblock>
+<apex:pageblock title="Button">
+        
+        <apex:commandButton value="Button 2" action="/apex/inputTextExample1" style="width:150px;height:33px;font-size:18px;background:#58FAAC"/>
+        
+    
+</apex:pageblock>
+<apex:pageblock title="Button with method">
+        
+        <apex:commandButton value="Button 2" action="{!show}"/>
+        {!result}
+    
+</apex:pageblock>
+
+<apex:pageblock title="pageblock !">
+<apex:pageblockSection title="Section " columns="3" collapsible="false">
+<apex:outputlabel >Enter Name</apex:outputlabel>
+<apex:inputtext />
+<apex:pageblock title="Block 1"> 
+this is a new component
+</apex:pageblock>
+</apex:pageblockSection>
+
+
+</apex:pageblock>
+
+
+
+<apex:pageblock >
+
+<apex:pageBlockSection >
+<apex:pageblocksectionItem >
+<apex:outputlabel > Enter User Name</apex:outputlabel>
+<apex:inputtext />
+
+</apex:pageblocksectionItem>
+
+
+<apex:pageblocksectionItem >
+<apex:outputlabel >Enter Name</apex:outputlabel>
+<apex:inputText />
+
+
+
+</apex:pageblocksectionItem>
+
+
+</apex:pageblockSection>
+
+<apex:pageblockSection >
+
+<apex:pageblocksectionItem >
+<apex:outputlabel >Enter Paswd</apex:outputlabel>
+<apex:inputText />
+
+
+
+</apex:pageblocksectionItem>
+
+
+
+<apex:pageblocksectionItem >
+<apex:outputlabel >Enter Password</apex:outputlabel>
+<apex:inputText />
+
+
+
+</apex:pageblocksectionItem>
+
+
+</apex:pageblockSection>
+
+
+
+
+
+
+</apex:pageblock>
+
+
+
+
+
+
+
+
+
+
+
+</apex:form>
+  
+</apex:page>

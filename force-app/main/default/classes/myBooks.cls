@@ -1,0 +1,15 @@
+public class myBooks
+{
+
+  public static void myBookPrice(List<Book__c> books){
+  
+     for(Book__c b:books){
+     
+     b.Price__c=b.Price__c*0.9;
+     
+     
+     }
+   
+  }
+
+}

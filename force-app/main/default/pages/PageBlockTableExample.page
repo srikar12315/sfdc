@@ -1,0 +1,44 @@
+<apex:page standardController="Account" recordSetVar="items" >
+  <style>
+  .one{
+  background:#4286f4;
+  }
+   .two{
+  background:#2bef21;
+  }
+   .three{
+  background:#c62b69;
+  }
+  
+  </style>
+    <apex:pageblock title="Page Block Table">
+    <apex:pageblockTable value="{!items}" var="a" first="1"   rows="5"> 
+        <apex:column value="{!a.Name}"/>
+        <apex:column value="{!a.industry}"/>
+        <apex:column value="{!a.type}"/>
+    </apex:pageblockTable>
+    </apex:pageblock>
+    
+     <apex:pageblock title="Page Block Table">
+    <apex:pageblockTable value="{!items}" var="a" first="1"   rows="5" columnswidth="100,100,100,100"> 
+        <apex:column value="{!a.Name}"/>
+        <apex:column value="{!a.industry}"/>
+        <apex:column value="{!a.type}"/>
+    </apex:pageblockTable>
+    </apex:pageblock>
+    
+    
+    <apex:pageblock title="Page Block Table">
+    <apex:pageblockTable value="{!items}" var="a" first="1"   rows="5" columnswidth="100,100,100,100" captionClass="one" footerClass="two" headerclass="three"> 
+    <apex:facet name="caption"> PageblockTable Caption</apex:facet>
+    <apex:facet name="header">  PageblockTable Caption</apex:facet>
+    
+        <apex:column value="{!a.Name}"/>
+        <apex:column value="{!a.industry}"/>
+        <apex:column value="{!a.type}"/>
+    <apex:facet name="footer">  PageblockTable Caption</apex:facet>
+    </apex:pageblockTable>
+    </apex:pageblock>
+    
+ 
+</apex:page>

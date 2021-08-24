@@ -1,0 +1,35 @@
+<apex:page controller="PageNavigationExampleDemo">
+  
+  <apex:form >
+  <apex:pageBlock title="Details">
+  <apex:pageblockSection >
+  <apex:pageblocksectionItem >
+  <apex:outputLabel >Your Name: </apex:outputLabel>
+  <apex:outputText value="{!name}"/>
+  
+  
+  </apex:pageblocksectionItem>
+  
+   <apex:pageblocksectionItem >
+  <apex:outputLabel >Your Age: </apex:outputLabel>
+  <apex:outputText value="{!age}"/>
+  
+  
+  </apex:pageblocksectionItem>
+  
+  
+  
+  </apex:pageblockSection>
+  
+  
+  
+  </apex:pageBlock>
+  
+  
+  
+  </apex:form>
+      
+  
+      
+      
+</apex:page>

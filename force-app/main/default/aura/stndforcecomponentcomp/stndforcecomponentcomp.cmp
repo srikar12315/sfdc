@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:attribute name="numbers" type="List" />
+    <ui:button label="Display numbers" press="{!c.getnumbers}"/><br></br>
+     <aura:iteration var="num" items="{!v.numbers}">
+    {!num.value}<br></br>
+    
+      </aura:iteration>  
+</aura:component>

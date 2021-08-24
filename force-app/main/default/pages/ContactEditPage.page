@@ -1,0 +1,20 @@
+<apex:page standardController="Contact">
+  
+  <apex:sectionHeader title="Contact Edit" subtitle="New Contact" help="/apex/studentoutput" description="Contacts not associated with accounts are private and cannot be viewed by other users or included in reports."/>
+  <apex:form >
+  <apex:pageblock title="Contact Page">
+  <apex:pageblockButtons >
+  <apex:commandButton value="Save" action="{!Save}"/>
+  <apex:commandButton value="Edit" action="{!Cancel}"/>
+  </apex:pageblockButtons>
+  <apex:pageblocksection >
+  <apex:inputField value="{!Contact.FirstName}"/>
+  <apex:inputfield value="{!Contact.LastName}"/>
+  <apex:inputfield value="{!Contact.Phone}"/>
+  <apex:inputfield value="{!Contact.Email}"/>
+  <apex:inputField value="{!Contact.Accountid}"/>
+  <apex:inputField value="{!Contact.Ownerid}"/>
+  </apex:pageblocksection>
+  </apex:pageblock>
+  </apex:form>
+</apex:page>

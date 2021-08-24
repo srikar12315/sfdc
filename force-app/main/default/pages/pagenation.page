@@ -1,0 +1,49 @@
+<apex:page StandardController="Opportunity" action="{!setPagination}" extensions="RecordSelectionPaginationController">  
+    
+    <apex:form >   
+        <apex:selectList value="{!gcocomms}" size="1">
+                    <apex:selectOptions value="{!GcoCommslst}"/>
+                    <apex:actionSupport event="onchange" action="{!setPagination}" reRender="snd1"/>
+                </apex:selectList> <br/><br/>
+        Email Subject : <apex:inputText value="{!emailSub}" style="width: 360px; height: 20px" id="Num1" /> <br/><br/>
+        Email Subject : <apex:inputText value="{!emailBody}" style="width: 360px; height: 20px" id="text_area_field" /> <br/><br/>
+        <apex:pageBlock id="pageblock" >  
+            <apex:pageBlockTable value="{!lstOppRecords}" var="Opp">  
+                <apex:column width="20px" >  
+                    <apex:inputCheckbox value="{!Opp.Selected}"/>  
+                </apex:column>  
+                <apex:column value="{!Opp.objOpp.Name}"/>  
+                <apex:column value="{!Opp.objOpp.StageName}"/>  
+                <apex:column value="{!Opp.objOpp.Account.Name}"/>   
+            </apex:pageBlockTable>  
+            <apex:outputpanel >  
+                <center>  
+                    <apex:panelGrid columns="5">  
+                        <apex:commandButton style="background:none!important;border:none;padding:0!important;cursor:pointer;" value="◄◄" reRender="pageblock" action="{!first}"/>  
+                        <apex:commandButton style="background:none!important;border:none;padding:0!important;cursor:pointer;" value="◄ Previous" reRender="pageblock" action="{!previous}" disabled="{!!hasPrevious}"/>  
+                        <apex:outputLabel value="{!intPageNumber} of {!intNumberofPages}" />  
+                        <apex:commandButton style="background:none!important;border:none;padding:0!important;cursor:pointer;" value="Next ►" reRender="pageblock" action="{!next}" disabled="{!!hasNext}"/>  
+                        <apex:commandButton style="background:none!important;border:none;padding:0!important;cursor:pointer;" value="►►" reRender="pageblock" action="{!last}"/>  
+                    </apex:panelGrid>  
+                </center>  
+            </apex:outputpanel>  
+        </apex:pageBlock>  
+    </apex:form>  
+     <apex:form >
+        
+        
+        <apex:pageBlock >
+                <apex:pageBlockSection showHeader="false" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="File Name" for="fileName"/>
+                         <apex:inputText value="{!attachment.name}" id="fileName"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="File" for="file"/>
+                    <apex:inputFile value="{!attachment.body}" filename="{!attachment.name}" id="file"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            </apex:pageBlock>
+            <apex:commandButton value="attach and send" action="{!upload}" />
+    </apex:form> 
+</apex:page>

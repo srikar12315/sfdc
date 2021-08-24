@@ -1,0 +1,46 @@
+<apex:page showHeader="false">
+<apex:composition template="CssExample">
+
+    <apex:define name="header">
+    <br/><br/>
+    <apex:pageblock title="PageBlock">
+    <apex:pageblockSection >
+     <apex:pageblockSectionItem >
+     <apex:outputlabel >Enter Name :</apex:outputlabel>
+     <apex:inputText />
+     </apex:pageblockSectionItem>
+     <apex:pageblockSectionItem >
+     <apex:outputlabel >Enter Age :</apex:outputlabel>
+     <apex:inputText />
+     </apex:pageblockSectionItem>
+    
+    
+    </apex:pageblockSection>
+    
+    </apex:pageblock>
+    <br/><br/>
+    <apex:pageblock title="PageBlock 1">
+    <apex:pageblockSection >
+     <apex:pageblockSectionItem >
+     <apex:outputlabel >Enter Mobile Number :</apex:outputlabel>
+     <apex:inputText />
+     </apex:pageblockSectionItem>
+     <apex:pageblockSectionItem >
+     <apex:outputlabel >Enter Gender:</apex:outputlabel>
+     <apex:inputText />
+     </apex:pageblockSectionItem>
+    
+    
+    </apex:pageblockSection>
+    
+    </apex:pageblock>
+    
+    
+    <br/><br/>
+    
+    </apex:define>
+
+
+</apex:composition>
+  
+</apex:page>

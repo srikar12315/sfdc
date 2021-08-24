@@ -1,0 +1,3 @@
+<apex:page controller="GetRestfulExample" action="{!fetchData}" contentType="text/plain">
+     {!response}
+</apex:page>

@@ -1,0 +1,72 @@
+<apex:page sidebar="false">
+<style>
+.one{
+
+width:98%;
+height:90px;
+border-radius:20px;
+background:#81DAF5;
+padding-left:20px;
+padding-top:5px;
+}
+.img{
+width:80px;
+height:80px;
+
+
+}
+.row{
+width:200px;
+height:30px;
+
+}
+.header{
+width:98%;
+height:20px;
+border-radius:20px;
+background:#898c85;
+padding-left:20px;
+
+}
+</style>
+<apex:form >
+<div class="one">
+<table>
+   <tr>
+     <td>
+          <table class="row">
+             <tr>
+               <td><apex:image value="{!$Resource.Logo}" styleClass="img"/></td>
+               <td> Online Batch - 134</td>
+             </tr>
+          </table>
+      </td>
+      <td style="width:80%">
+      <apex:selectList size="1">
+      <apex:selectOption itemLabel="-None-" itemValue="None"/>
+      <apex:selectOption itemLabel="Java" itemValue="Java"/>
+      <apex:selectOption itemLabel="Salesforce" itemValue="Salesforce"/>
+      
+      
+      </apex:selectList>
+      
+      
+      
+      </td>
+    </tr>
+
+</table>
+
+</div>
+<apex:insert name="header"/>
+<div class="header">
+Copyright @ Srinivas Bandi
+
+</div>
+
+
+
+
+
+</apex:form>
+</apex:page>

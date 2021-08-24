@@ -1,0 +1,61 @@
+<apex:page controller="RESTAPIPlaygroundController" sidebar="false">
+<style>
+.table .tr .td{
+        width:100%;
+}
+</style>
+<apex:form >
+<apex:pagemessages />
+<apex:pageblock mode="maindetail" title="REST API TUTORIAL">
+    <table width="100%">
+        <tr width="100%">
+            <td width="50%">
+                <table>
+                    <tr><th>Request Parameters</th> </tr>
+                    <tr><td><apex:outputlabel value="Enter Access token" /></td></tr>
+                    <tr><td><apex:inputtextarea value="{!strAccessToken}"  id="AcessToken" style="width:100%;"/> </td></tr>
+                    <tr><td><apex:outputlabel value="REST API service URI" /></td></tr>
+                    <tr><td><apex:inputtextarea value="{!strURI}"  id="URI" style="width:100%;"/> </td></tr>
+                    <tr><td><apex:outputlabel value="Choose an HTTP method to perform on the REST API service URI" /></td></tr>
+                    <tr>
+                        <td>
+                            <apex:selectradio value="{!strSelectedMethod}"  id="sm">
+                            <apex:selectoptions value="{!AvailableHTTPmethods}" />
+                            </apex:selectradio>
+                        </td>
+                    </tr>
+                    <tr><td><apex:outputlabel value="Content Type" /></td></tr>
+                    <tr>
+                        <td>
+                            <apex:selectlist value="{!strSelectedContentType}" size="1" id="cont">
+                            <apex:selectoptions value="{!ContentType}"/>
+                            </apex:selectlist>
+                        </td> 
+                    </tr>
+                    <tr><td><apex:outputlabel value="Request Body" /></td></tr>
+                    <tr><td><apex:inputtextarea value="{!strRequestBody}"  id="reqbody" style="width:100%;"/> </td> </tr>
+                </table>
+            </td>
+            <td width="50%">
+                <table>
+                    <tr><th>Apex Code</th></tr>
+                    <tr><td><apex:inputtextarea value="{!strApexCode}" id="ac" style="width:500px;height:300px;"/></td></tr>
+                </table>
+            </td>
+        </tr>     
+    </table>
+    <br/>
+    <apex:commandbutton value="Send request" action="{!sendRequest}"/>
+    <br/>
+    <!--  Response section -->
+    <table width="100%">
+        <tr>
+            <th>HTTP Response</th>
+        </tr>
+        <tr>
+            <td><apex:inputtextarea value="{!strResponse}" id="res" style="width:100%;height:400px;"/></td>
+        </tr>
+    </table>
+</apex:pageblock> 
+</apex:form>
+</apex:page>

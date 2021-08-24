@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <decisions>
+        <name>Student_Type_Decision</name>
+        <label>Student Type</label>
+        <locationX>147</locationX>
+        <locationY>158</locationY>
+        <defaultConnector>
+            <targetReference>Undergraduate</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Undergraduate</defaultConnectorLabel>
+        <rules>
+            <name>Graduate_Outcome</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>StudentType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Graduate</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Graduate_Transfer</targetReference>
+            </connector>
+            <label>Graduate</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Main Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Main Flow</label>
+    <processType>Flow</processType>
+    <screens>
+        <name>Inro_Screen</name>
+        <label>Inro</label>
+        <locationX>144</locationX>
+        <locationY>40</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Student_Type_Decision</targetReference>
+        </connector>
+        <fields>
+            <name>Intro_Screen</name>
+            <fieldText>Below is the student information. Press the next button to begin !!
+Student Account Number: {!AccountNumber}
+Student Name: {!AccountName}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <startElementReference>Inro_Screen</startElementReference>
+    <status>Obsolete</status>
+    <subflows>
+        <name>Graduate_Transfer</name>
+        <label>Graduate Transfer</label>
+        <locationX>47</locationX>
+        <locationY>308</locationY>
+        <flowName>Call_Center_Transfer_Subflow</flowName>
+        <inputAssignments>
+            <name>Transer_Type</name>
+            <value>
+                <stringValue>Department</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Department_Name</name>
+            <value>
+                <stringValue>Faculty Dep</stringValue>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>Undergraduate</name>
+        <label>Undergraduate</label>
+        <locationX>260</locationX>
+        <locationY>306</locationY>
+        <flowName>Call_Center_Transfer_Subflow</flowName>
+        <inputAssignments>
+            <name>Transer_Type</name>
+            <value>
+                <stringValue>College</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Collage_Name</name>
+            <value>
+                <elementReference>CollegeName</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <description>The name of the student</description>
+        <name>AccountName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>the unique number of the student</description>
+        <name>AccountNumber</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The name of the college</description>
+        <name>CollegeName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The type of student(Graduate or Undergraduate)</description>
+        <name>StudentType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

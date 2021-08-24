@@ -1,0 +1,6 @@
+<design:component>
+    <design:attribute name="PageHeading" label="Page Heading" description="help text">
+    
+    </design:attribute>
+	
+</design:component>

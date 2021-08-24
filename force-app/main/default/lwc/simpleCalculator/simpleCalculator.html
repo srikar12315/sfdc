@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title="Calculater"  icon-name="doctype:audio">
+
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" padding="around-medium">
+                <lightning-input type="number" name="firstNumber" onchange={numberChangeHandler}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" padding="around-medium">
+                <lightning-input type="number" name="secondNumber" onchange={numberChangeHandler}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" padding="around-medium">
+                <lightning-button-group>
+                    <lightning-button label="Add" icon-name="utility:add" icon-position="right" onclick={addvalues}></lightning-button>
+                    <lightning-button label="Sub" onclick={subvalues}></lightning-button>
+                    <lightning-button label="Multiply" onclick={multiplyvalues}></lightning-button>
+                    <lightning-button label="Divide" onclick={dividevalues}></lightning-button>
+                </lightning-button-group>
+            </lightning-layout-item>
+           <lightning-layout-item size="12" padding="around-medium">
+            Output:{output}
+            </lightning-layout-item>
+            <lightning-layout-item size="12" padding="around-medium">
+                <lightning-input type="checkbox" label="Show Result " onchange={showpreviousResultes}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" padding="around-medium">
+               <template if:true={showPreviousRslt}>
+                   <ul>
+                       <template iterator:result={previousResults}>
+                           <li key={result.value}>
+                            <div if:true={result.first} class="slds-border_top"></div>
+                            previous : {result.value}
+                            <div if:true={result.last} class="slds-border_bottom"></div>
+                           </li>
+                       </template>
+                   </ul>
+
+               </template>
+               
+            </lightning-layout-item>
+        </lightning-layout>
+       
+      
+    </lightning-card>
+    
+</template>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <decisions>
+        <name>check_dission</name>
+        <label>check dission</label>
+        <locationX>386</locationX>
+        <locationY>145</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>isTrue</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>blockuserss.BlockUser__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>isTrue</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Block Uers {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Block Uers</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Block_Users_Custom_setting</name>
+        <label>Block Users Custom setting</label>
+        <locationX>208</locationX>
+        <locationY>121</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>check_dission</targetReference>
+        </connector>
+        <object>Block_users_from_Login__c</object>
+        <outputReference>blockuserss</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>BlockUser__c</queriedFields>
+        <queriedFields>DisplayMessage__c</queriedFields>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Block_Users_Custom_setting</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>blockusers</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>blockuserss</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Block_users_from_Login__c</objectType>
+    </variables>
+</Flow>

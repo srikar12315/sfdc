@@ -1,0 +1,7 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:registerEvent name="AccountPaginationCmpEvent" type="c:AccountPaginationCmpEvent"/>   
+    
+    <lightning:button variant="brand" label="Prev" title="Brand action" onclick = "{!c.previousDetail}" />
+    <lightning:button variant="brand" label="Next" title="Brand action" onclick = "{!c.nextDetail}" />    
+    
+</aura:component>

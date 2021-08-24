@@ -1,0 +1,11 @@
+<apex:page standardController="Account" extensions="StandContrl" >
+    <apex:form >
+    <apex:pageBlock title="Account Details">
+        Account Name   :{!accs.Name}<br/>
+        Industry       :{!accs.Industry}<br/>
+        Phone          :{!accs.Phone}<br/>
+        Annual Revenue :{!accs.AnnualRevenue}<br/>
+        Billing Address:{!accs.BillingCountry} 
+     </apex:pageBlock>
+    </apex:form>
+</apex:page>

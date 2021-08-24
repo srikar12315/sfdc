@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="First Lightning Component" icon-name="doctype:audio" >
+
+        <div class="first-class"> Hellow: {fname}</div>
+        <lightning-input label="Enter Your Name:" onchange={namechanges}></lightning-input>
+        <div>Your Location:{location}</div>
+        <lightning-input label="Enter your location" onchange={locationchanged}></lightning-input>
+         <lightning-input type="checkbox" label="show div tag" onchange={showCheckboxhandler}></lightning-input>
+         <template if:true={chkBox}>
+             <div> Checkbox checked </div>
+         </template>
+         <template if:false={chkBox}>
+            <div>  Checkbox un-checked  </div>
+        </template>
+        <template for:each={cityList} for:item="city">
+             <p key={city}>{city} </p>
+        </template>
+
+        <h> Itteration Example :</h>
+        <template iterator:it={cityList}>
+            <p key={it.value}>{it.value}</p>
+        </template>
+    </lightning-card>
+</template>

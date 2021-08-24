@@ -1,0 +1,31 @@
+<apex:page controller="inputTextExample1">
+  <apex:form >
+  
+   <apex:pageblock >
+      <apex:outputlabel >Enter Name :</apex:outputlabel>
+      <apex:inputText value="{!name}"/><br/><br/>
+       <apex:outputlabel >Enter Branch :</apex:outputlabel>
+      <apex:inputText value="{!branch}"/><br/><br/>
+       <apex:outputlabel >Enter Address :</apex:outputlabel>
+      <apex:inputTextarea rows="4" cols="30" value="{!description}"/><br/>
+   </apex:pageblock>
+   <apex:pageblock title="input secret">
+   <apex:outputlabel >InputSecret :</apex:outputlabel>
+   <apex:inputSecret />
+   </apex:pageblock>
+    <apex:pageblock title="input Hidden">
+   <apex:outputlabel >Input Hidden :</apex:outputlabel>
+   <apex:inputHidden />
+   </apex:pageblock>
+   
+   
+   <apex:pageblock title="InputFile">
+   
+       <apex:outputlabel >Input File :</apex:outputlabel>
+       <apex:inputFile fileName="{!fileName}" value="{!fileBody}"/>
+   
+   </apex:pageblock>
+  
+  </apex:form>
+  
+</apex:page>

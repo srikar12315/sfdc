@@ -1,0 +1,36 @@
+<apex:page controller="PageNavigationExampleDemo">
+
+<apex:sectionHeader title="Navigation" subtitle="Next page"/>
+<apex:form >
+
+<apex:pageblock title="Details">
+<apex:pageblocksection >
+
+<apex:pageblocksectionitem >
+<apex:outputlabel >Enter Name: </apex:outputlabel>
+<apex:inputtext value="{!name}"/>
+
+</apex:pageblocksectionitem>
+
+<apex:pageblocksectionitem >
+<apex:outputlabel >Enter Age: </apex:outputlabel>
+<apex:inputtext value="{!age}"/>
+
+</apex:pageblocksectionitem>
+
+</apex:pageblocksection>
+
+<apex:pageblockButtons >
+
+
+<apex:commandButton value="Submit" action="{!navigate}"/>
+</apex:pageblockButtons>
+</apex:pageblock>
+
+
+
+
+</apex:form>
+
+  
+</apex:page>

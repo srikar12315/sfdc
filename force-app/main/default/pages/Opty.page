@@ -1,0 +1,186 @@
+<apex:page standardController="Opportunity" extensions="opty" >
+    <apex:form id="form">   
+     <apex:pageBlock title="Opportunity Details" id="pb">
+          <apex:pageBlockButtons location="top">
+          <apex:commandButton value="save" action="{!Save}" rendered="{!isEdit}"  />
+          <apex:commandButton value="Cancel" action="{!Cancel}" rendered="{!isEdit}" />
+          </apex:pageBlockButtons>
+          <apex:pageblockSection columns="2" title="Opportunity Information" collapsible="true" >
+          <apex:pageBlockSectionItem rendered="{!isEdit == False}" >
+          <apex:outputLabel value="Opportunity Owner" ></apex:outputLabel><apex:outputField value="{!Opportunity.OwnerId}" />
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == True}" >
+          <apex:outputLabel value="Opportunity Owner" ></apex:outputLabel><apex:inputField value="{!Opportunity.OwnerId}"/>
+          </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Amount"></apex:outputLabel><apex:outputField value="{!Opportunity.Amount}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+          <apex:outputLabel value="Amount"></apex:outputLabel><apex:inputField value="{!Opportunity.Amount}"/>
+          </apex:pageBlockSectionItem>       
+           <apex:pageBlockSectionItem rendered="{!isEdit == False}" >
+          <apex:outputLabel value="Private" ></apex:outputLabel><apex:outputField value="{!Opportunity.IsPrivate}" />
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == True}" >
+          <apex:outputLabel value="Private" ></apex:outputLabel><apex:inputField value="{!Opportunity.IsPrivate}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Close Date"></apex:outputLabel><apex:outputField value="{!Opportunity.CloseDate}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+          <apex:outputLabel value="Close Date"></apex:outputLabel><apex:inputField value="{!Opportunity.CloseDate}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == False}" >
+          <apex:outputLabel value="Opportunity Name" ></apex:outputLabel><apex:outputField value="{!Opportunity.Name}" />
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == True}" >
+          <apex:outputLabel value="Opportunity Name" ></apex:outputLabel><apex:inputField value="{!Opportunity.Name}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Next Step"></apex:outputLabel><apex:outputField value="{!Opportunity.NextStep}"/>
+          </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+          <apex:outputLabel value="Next Step"></apex:outputLabel><apex:inputField value="{!Opportunity.NextStep}"/>
+          </apex:pageBlockSectionItem>   
+          <apex:pageBlockSectionItem rendered="{!isEdit == False}" >
+          <apex:outputLabel value="Account Name"></apex:outputLabel><apex:outputField value="{!Opportunity.AccountId}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+          <apex:outputLabel value="Account Name"></apex:outputLabel><apex:inputField value="{!Opportunity.AccountId}"/>
+          </apex:pageBlockSectionItem>   
+          <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Stage"></apex:outputLabel><apex:outputField value="{!Opportunity.StageName}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+          <apex:outputLabel value="Stage"></apex:outputLabel><apex:inputField value="{!Opportunity.StageName}"/>
+          </apex:pageBlockSectionItem>      
+           <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Type"></apex:outputLabel><apex:outputField value="{!Opportunity.Type}"/>
+          </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+          <apex:outputLabel value="Type"></apex:outputLabel><apex:inputField value="{!Opportunity.Type}"/>
+          </apex:pageBlockSectionItem>       
+          <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Probability (%)"></apex:outputLabel><apex:outputField value="{!Opportunity.Probability}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+          <apex:outputLabel value="Probability (%)"></apex:outputLabel><apex:inputField value="{!Opportunity.Probability}"/>
+          </apex:pageBlockSectionItem>    
+           <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Lead Source"></apex:outputLabel><apex:outputField value="{!Opportunity.LeadSource}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+          <apex:outputLabel value="Lead Source"></apex:outputLabel><apex:inputField value="{!Opportunity.LeadSource}"/>
+          </apex:pageBlockSectionItem>      
+         <!--<apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Primary Campaign Source"></apex:outputLabel><apex:outputField value="{!Opportunity.Campaign}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+          <apex:outputLabel value="Primary Campaign Source"></apex:outputLabel><apex:inputField value="{!Opportunity.Campaign}"/>
+          </apex:pageBlockSectionItem>-->   
+          </apex:pageblockSection>
+           <apex:pageBlockSection title="Additional Information " collapsible="true" columns="2">    
+           <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Order Number"></apex:outputLabel><apex:outputField value="{!Opportunity.OrderNumber__c}"/>
+          </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem rendered="{!isEdit == True}"> 
+          <apex:outputLabel value="Order Number"></apex:outputLabel><apex:inputField value="{!Opportunity.OrderNumber__c}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Main Competitor(s) "></apex:outputLabel><apex:outputField value="{!Opportunity.MainCompetitors__c}"/>
+          </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+           <apex:outputLabel value="Main Competitor(s)"></apex:outputLabel><apex:inputField value="{!Opportunity.MainCompetitors__c}"/>
+          </apex:pageBlockSectionItem>     
+          <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Current Generator(s)"></apex:outputLabel><apex:outputField value="{!Opportunity.CurrentGenerators__c}"/>
+          </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+           <apex:outputLabel value="Current Generator(s)"></apex:outputLabel><apex:inputField value="{!Opportunity.CurrentGenerators__c}"/>
+          </apex:pageBlockSectionItem>      
+            <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Delivery/Installation Status"></apex:outputLabel><apex:outputField value="{!Opportunity.DeliveryInstallationStatus__c}"/>
+          </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+           <apex:outputLabel value="Delivery/Installation Status"></apex:outputLabel><apex:inputField value="{!Opportunity.DeliveryInstallationStatus__c}"/>
+          </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Tracking Number"></apex:outputLabel><apex:outputField value="{!Opportunity.TrackingNumber__c}"/>
+          </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+           <apex:outputLabel value="Tracking Number"></apex:outputLabel><apex:inputField value="{!Opportunity.TrackingNumber__c}"/>
+          </apex:pageBlockSectionItem> 
+               </apex:pageBlockSection>
+           <apex:pageBlockSection title="Description Information " collapsible="true" columns="2">
+           <apex:pageBlockSectionItem rendered="{!isEdit == False}">
+          <apex:outputLabel value="Description"></apex:outputLabel><apex:outputField value="{!Opportunity.Description}"/>
+          </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem rendered="{!isEdit == True}">
+           <apex:outputLabel value="Description"></apex:outputLabel><apex:inputField value="{!Opportunity.Description}"/>
+          </apex:pageBlockSectionItem>           
+           </apex:pageBlockSection>   
+          <apex:outputLabel >Edit Opportunity</apex:outputLabel>
+           <apex:inputCheckbox value="{!isEdit}">
+           <apex:actionSupport event="onchange" reRender="pb"/>    
+           </apex:inputCheckbox> 
+        </apex:pageBlock>
+     <apex:pageBlock id="pB1">
+        <apex:pageBlockSection columns="1" title="Products -  Page #{!pageNumber}" collapsible="false" >
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Product Name</apex:outputLabel>
+                <apex:inputText value="{!pname}" /> 
+            </apex:pageBlockSectionItem>
+           <!-- <apex:pageBlockSectionItem >
+                <apex:outputLabel >Product Code</apex:outputLabel>
+                <apex:inputText value="{!pcode}" /> 
+            </apex:pageBlockSectionItem> -->
+            <apex:commandButton value="Search" action="{!SearchPrds}" reRender="pB1" />
+            <apex:pageblockTable value="{!ProdWrapperList}" var="Prod" id="tb">
+                <apex:column >
+                <apex:facet name="header"><apex:commandButton action="{!addOppLine}" value="Add" reRender="pB1,pb2"  rendered="{!IF(ProdWrapperList.size!=0,true,false)}"/></apex:facet>
+                <apex:inputCheckbox value="{!Prod.selected}"/>
+                </apex:column>
+                <apex:column value="{!Prod.ProdRec.name}"/>                
+                <apex:column value="{!Prod.ProdRec.ProductCode}"/>
+                <apex:column value="{!Prod.ProdRec.Family}"/>
+                <apex:column value="{!Prod.ProdRec.Description}"/>
+            </apex:pageblockTable>
+            <apex:panelGrid columns="4">
+    <apex:commandLink action="{!first}">First</apex:commandlink>
+    <apex:commandLink action="{!previous}" rendered="{!hasPrevious}">Previous</apex:commandlink>
+    <apex:commandLink action="{!next}" rendered="{!hasNext}">Next</apex:commandlink>
+    <apex:commandLink action="{!last}">Last</apex:commandlink>
+    </apex:panelGrid>
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        <!--code added for opp Line Items Added by Abhishek-->
+        <apex:pageBlock id="pb2" rendered="{!IF(oppLineItemsWrapperList.size!=0,true,false)}">
+        <apex:pageBlockSection id="pbs" columns="1" title="Opportunity Lines" collapsible="false">
+            <apex:pageBlockTable value="{!oppLineItemsWrapperList}" var="oli" id="oppTB" >
+                <apex:column >
+                    <apex:facet name="header"><apex:commandButton action="{!removeopplineItems}" reRender="form" value="Remove"/></apex:facet>
+                    <apex:inputCheckbox value="{!oli.selected}"/>
+                </apex:column>
+                <apex:column value="{!oli.oppLineItem.Product2.Name}"/>
+                <apex:column value="{!oli.oppLineItem.Product2.ProductCode}"/>
+                <apex:column value="{!oli.oppLineItem.Product2.Family}"/>
+                <apex:column value="{!oli.oppLineItem.ListPrice}"/>
+                <apex:column >
+                    <apex:facet name="header">Quantity</apex:facet>                
+                    <apex:inputText value="{!oli.oppLineItem.Quantity}"/>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">SalesPrice</apex:facet>                   
+                    <apex:inputText value="{!oli.oppLineItem.UnitPrice}"/>
+                </apex:column>             
+                <apex:column >
+                    <apex:facet name="header">Discount</apex:facet>
+                    <apex:inputText value="{!oli.oppLineItem.Discount}"/>
+                </apex:column> 
+                <apex:column value="{!oli.oppLineItem.TotalPrice}"/>
+            </apex:pageBlockTable>    
+        </apex:pageBlockSection>
+</apex:pageBlock>
+    </apex:form>
+    <!--<apex:relatedList list="OpportunityLineItems" id="rlist" />-->
+</apex:page>
