@@ -1,0 +1,22 @@
+<apex:page >
+ <apex:form >
+ <apex:pageBlock title="Student Details">
+  <apex:outputLabel value="First Name : "/>
+  <apex:inputtext /><br/><br/>
+  <apex:outputLabel value=" Last Name : "/>
+  <apex:inputtext /><br/><br/>
+   <apex:outputLabel value=" 5 Digit Pin  : "/>
+  <apex:inputtext maxlength="5"/><br/><br/>
+  <apex:outputLabel value="     MR     : "/>
+  <apex:inputtext disabled="true" /><br/><br/>
+  <apex:outputLabel value=" Description: "/>
+  <apex:inputtextarea /> 
+  
+ </apex:pageBlock>
+ <apex:pageblock title="Rich text Area">
+ <apex:outputlabel value="Rich Text"/>
+ <apex:inputtextarea rows="4" cols="30" richtext="true"/>
+ 
+ </apex:pageblock>
+ </apex:form>
+</apex:page>

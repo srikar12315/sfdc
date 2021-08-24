@@ -1,0 +1,42 @@
+<apex:page controller="PageNavigationExample">
+<apex:sectionHeader title="VF Page" subtitle="New VF Page"/>
+    <apex:form >
+    <apex:pageBlock >
+    
+    <apex:pageblockbuttons location="top">
+    
+    <apex:commandButton value="Next Page" action="{!nextPage}"/>
+    </apex:pageblockbuttons>
+    <apex:pageblockSection >
+    <apex:pageblocksectionItem >
+    
+    <apex:outputLabel >Enter Your Name :</apex:outputLabel>
+    <apex:inputText />
+    
+    </apex:pageblocksectionItem>
+    <apex:pageblocksectionItem >
+    
+    <apex:outputLabel >Enter Your Age :</apex:outputLabel>
+    <apex:inputText />
+    
+    </apex:pageblocksectionItem>
+     <apex:pageblocksectionItem >
+    
+    <apex:outputLabel >Enter Your Number :</apex:outputLabel>
+    <apex:inputText />
+    
+    </apex:pageblocksectionItem>
+    
+    
+    </apex:pageblockSection>
+    
+    
+    
+    </apex:pageBlock>
+        
+        
+    
+    
+    </apex:form>
+  
+</apex:page>

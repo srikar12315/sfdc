@@ -1,0 +1,21 @@
+<apex:page controller="SOQLExample1">
+  
+  <apex:form >
+  <apex:inputtext value="{!industry}"/>
+  <apex:commandButton value="Search" action="{!getData}"/>
+  <br/><br/>
+  <apex:pageblock title="Account Records" rendered="{! !ISNULL(accs)}">
+  <apex:pageblocktable value="{!accs}" var="a">
+  <apex:column value="{!a.name}"/>
+  <apex:column value="{!a.phone}"/>
+  <apex:column value="{!a.Industry}"/>
+  
+  
+  
+  </apex:pageblocktable>
+  
+  
+  </apex:pageblock>
+  </apex:form>
+  
+</apex:page>

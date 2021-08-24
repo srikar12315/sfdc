@@ -1,0 +1,24 @@
+<apex:page standardController="Opportunity">
+   <script> function reload(){ window.setTimeout('window.location.reload(true);',5); } </script> 
+   <div align="right">
+      <table>
+         <tbody>
+            <tr>
+               <td style="color:#a52a2a;font-size:125%;font-weight:bold;">
+                  <apex:outputField value=" {!opportunity.StageName}"/>
+               </td>
+               <td nowrap="nowrap" style="width:color:#2a2aa5;text-align:center;font-size:125%;font-weight:bold;">
+                  Grant:&nbsp;
+                  <apex:outputField value=" {!opportunity.Name}"/>
+                  / Paid &nbsp;
+                  <apex:outputField value=" {!opportunity.Amount}"/>
+               </td>
+               <td style="color:#259125;font-size:125%;font-weight:bold;">
+                  <apex:outputField value="{!opportunity.Probability}"/>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <apex:detail subject="{!Opportunity.Id}" relatedList="true" title="true" inlineEdit="true" oncomplete="reload()"/>
+</apex:page>

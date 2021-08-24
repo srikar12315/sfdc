@@ -1,0 +1,38 @@
+<aura:component controller="LightningMapDemoController"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+    
+    <!-- datatable component attribute -->
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="maxRowSelection" type="Integer" default="5"/>
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+    <lightning:layout horizontalAlign="space">
+        <lightning:layoutItem size="6">
+            <lightning:datatable
+                                 columns="{! v.columns }"
+                                 data="{! v.data }"
+                                 keyField="Id"
+                                 hideCheckboxColumn="true"
+                                 onrowaction="{! c.handleRowAction }"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="6">
+            <!-- the map component -->
+            <div aura:id="mapContainer">
+                <!-- We will be generating below component
+                     dynamically as there will be multiple markers
+                     added dynamically-->
+                <!--<lightning:map
+                               aura:id="mapComponent"
+                               mapMarkers="{! v.markers }"
+                               zoomLevel="{! v.zoomLevel }"
+                               markersTitle="{! v.markersTitle }"
+                               showFooter="{ !v.showFooter }" >
+                    
+                </lightning:map>-->
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

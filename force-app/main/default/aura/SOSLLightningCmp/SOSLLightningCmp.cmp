@@ -1,0 +1,124 @@
+<aura:component controller="SOSLLightningCtrl" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="searchName"  type="String" />
+    
+    <aura:attribute name="wrapperList" type="object"/>
+    <div class="slds-theme_default" >
+        <div class="slds-card slds-p-around--large">
+            <lightning:input type="search" label="Please Enter Account Name" name="search"  value="{!v.searchName}" required="true" placeholder="SearchInAll" onkeyup="{!c.searchResult}"/>
+        </div>
+        <aura:if isTrue="{!v.wrapperList.lstAccs.length > 0}">
+         <div class="slds-card">
+                <div class="slds-text-heading_medium">
+                    <strong>Search Result Based On Acount Name</strong>
+                </div>
+                <lightning:accordion >
+                    <lightning:accordionSection name="Accounts" label="Accounts">
+                        <aura:set attribute="body">
+                            <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                                <thead>
+                                    <tr class="slds-text-title--caps">
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Id">Id</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Name">Name</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Type">Type</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <aura:iteration items="{!v.wrapperList.lstAccs}" var="con">
+                                        <tr>
+                                            <th scope="row">
+                                                <div class="slds-truncate" title="{#con.Id}">{#con.Id}</div>
+                                            </th>
+                                            <th scope="row">
+                                                <div class="slds-truncate" title="{#con.Name}">{#con.Name}</div>
+                                            </th>
+                                            <th scope="row">
+                                                <div class="slds-truncate" title="{#con.Type}">{#con.Type}</div>
+                                            </th>
+                                        </tr>
+                                    </aura:iteration>
+                                </tbody>
+                            </table>
+                        </aura:set>
+                    </lightning:accordionSection>
+                    <!-- second section -->
+                    <lightning:accordionSection name="Contacts" label="Contacts">
+                        <aura:set attribute="body">
+                            <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                                <thead>
+                                    <tr class="slds-text-title--caps">
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Id">Id</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Name">Name</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="AccountName">AccountName</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <aura:iteration items="{!v.wrapperList.lstConts}" var="con">
+                                        <tr>
+                                            <th scope="row">
+                                                <div class="slds-truncate" title="{#con.Id}">{#con.Id}</div>
+                                            </th>
+                                            <th scope="row">
+                                                <div class="slds-truncate" title="{#con.Name}">{#con.Name}</div>
+                                            </th>
+                                            <th scope="row">
+                                                <div class="slds-truncate" title="{#con.Account.Name}">{#con.Account.Name}</div>
+                                            </th>
+                                        </tr>
+                                    </aura:iteration>
+                                </tbody>
+                            </table>
+                        </aura:set>
+                    </lightning:accordionSection>
+                    <!-- 3rd section -->
+                    <lightning:accordionSection name="Opportunitys" label="Opportunitys">
+                        <aura:set attribute="body">
+                            <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                                <thead>
+                                    <tr class="slds-text-title--caps">
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Id">Id</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Name">Name</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="AccountName">AccountName</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <aura:iteration items="{!v.wrapperList.lstOpptys}" var="con">
+                                        <tr>
+                                            <th scope="row">
+                                                <div class="slds-truncate" title="{#con.Id}">{#con.Id}</div>
+                                            </th>
+                                            <th scope="row">
+                                                <div class="slds-truncate" title="{#con.Name}">{#con.Name}</div>
+                                            </th>
+                                            <th scope="row">
+                                                <div class="slds-truncate" title="{#con.Account.Name}">{#con.Account.Name}</div>
+                                            </th>
+                                        </tr>
+                                    </aura:iteration>
+                                </tbody>
+                            </table>
+                        </aura:set>
+                    </lightning:accordionSection>
+                </lightning:accordion>
+            </div>
+        
+        </aura:if>
+    </div>
+</aura:component>

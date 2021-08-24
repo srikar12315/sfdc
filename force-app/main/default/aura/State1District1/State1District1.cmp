@@ -1,0 +1,11 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<p>This is from stateDistrict 1</p>
+    <aura:handler name="LowPriorityComplaintFromTownship1" event="c:ComponentEventWithComplaintMsg" action="{!c.handlingLowPComplaints}" phase="capture" />
+    <aura:handler name="MediumPriorityComplaintFromTownship1" event="c:ComponentEventWithComplaintMsg" action="{!c.handlingMediumPComplaints}" phase="bubble" />
+    <p>
+        <c:S1D1Townsip1/>
+    </p>
+    <p>
+     <c:S1D1Townsip2/>
+    </p>
+</aura:component>

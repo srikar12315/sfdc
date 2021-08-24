@@ -1,0 +1,9 @@
+<aura:component >
+	 <aura:attribute name="num1" type="Integer" default="10" />
+    <aura:attribute name="num2" type="Integer" default="100" />
+    <aura:attribute name="sum"  type="Integer" />
+    
+    {!v.num1} +{!v.num2} = {!v.sum}
+    <br/>
+    <ui:button label="Press me/Click me" press="{!c.add}"/>
+</aura:component>

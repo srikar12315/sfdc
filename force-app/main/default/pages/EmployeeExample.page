@@ -1,0 +1,59 @@
+<apex:page controller="EmployeeExample">
+ <apex:form >
+ <apex:pageblock title="Employee Registration">
+ <apex:pageBlockSection >
+ <apex:pageBlockSectionItem ><apex:outputlabel >Employee Name :</apex:outputlabel></apex:pageBlockSectionItem>
+ <apex:pageblocksectionItem ><apex:inputText value="{!name}"/></apex:pageblocksectionItem>
+ </apex:pageBlockSection>
+ 
+ <apex:pageblockSection >
+ <apex:pageblocksectionItem ><apex:outputlabel >Salary :</apex:outputlabel></apex:pageblocksectionItem>
+ <apex:pageblocksectionItem ><apex:inputText value="{!salary}"/></apex:pageblocksectionItem>
+ 
+ 
+ </apex:pageblockSection>
+ 
+ <apex:pageblockSection >
+ <apex:pageblocksectionItem ><apex:outputlabel >Exp :</apex:outputlabel></apex:pageblocksectionItem>
+ <apex:pageblocksectionItem ><apex:inputText value="{!exp}"/></apex:pageblocksectionItem>
+ 
+ 
+ </apex:pageblockSection>
+ <apex:pageblockSection >
+ <apex:pageblocksectionItem ><apex:outputlabel >Active :</apex:outputlabel></apex:pageblocksectionItem>
+ <apex:pageblocksectionItem ><apex:inputCheckbox value="{!flag}"/></apex:pageblocksectionItem>
+ 
+ 
+ </apex:pageblockSection>
+ <apex:pageblockSection >
+ <apex:pageblocksectionItem ><apex:outputlabel >Address :</apex:outputlabel></apex:pageblocksectionItem>
+ <apex:pageblocksectionItem ><apex:inputTextarea value="{!address}" cols="25" rows="4"/></apex:pageblocksectionItem>
+ 
+ </apex:pageblockSection>
+ 
+ 
+ <apex:pageblock title="Command Button">
+ <apex:pageBlockSection >
+ 
+ <apex:commandButton value="Click Me" action="{!show}"/>
+ {!result}
+ </apex:pageBlockSection>
+ 
+ 
+ </apex:pageblock>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </apex:pageblock>
+ </apex:form>
+ 
+</apex:page>

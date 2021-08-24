@@ -1,0 +1,18 @@
+<aura:component >
+	<h1>I am Srinivas Bandi</h1>
+    <br/>
+    <div>
+    <div class="red">Address :</div>
+    <br/>
+    <div class="blue">27 Duncan Ave</div>
+     <br/>
+    <div class="green">Sandringham,</div>
+        <br/>   
+    <div >Auckland -1025 </div>
+        <br/>
+        <ltng:require styles="/resource/lightning" />
+       <div class="grey">New Zealand</div>
+        
+    </div>
+    
+</aura:component>

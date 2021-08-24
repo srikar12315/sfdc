@@ -1,0 +1,17 @@
+<apex:page standardController="Speaker__c" extensions="SpeakerControllerExt">
+
+  <apex:form >
+  <apex:pageblock title="Edit Speaker">
+  <apex:pageBlockSection columns="1">
+  <apex:inputField value="{!Speaker__c.First_Name__c}"/>
+  <apex:inputField value="{!Speaker__c.Last_Name__c}"/>
+  <apex:inputField value="{!Speaker__c.Email__c}"/>
+  <apex:inputFile value="{!Picture}" accept="images/*"/>
+  </apex:pageBlockSection>
+  <apex:pageBlockButtons >
+  <apex:commandButton action="{!save}" value="Save"/>
+  </apex:pageBlockButtons>
+  </apex:pageblock>
+  {!errorMessage}
+  </apex:form> 
+</apex:page>

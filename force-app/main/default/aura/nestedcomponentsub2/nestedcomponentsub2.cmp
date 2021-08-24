@@ -1,0 +1,5 @@
+<aura:component >
+    <aura:attribute name="whom" type="string" default="From component" />
+    Hellow {!v.whom}
+	
+</aura:component>

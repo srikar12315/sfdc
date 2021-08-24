@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>Account_Object_Assignment</name>
+        <label>Account Object Assignment</label>
+        <locationX>279</locationX>
+        <locationY>307</locationY>
+        <assignmentItems>
+            <assignToReference>AccountObject.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Account_Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AccountObject.Site</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Account_Site</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AccountObject.Phone</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Phone</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AccountObject.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Account_Type</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AccountObject.Industry</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Account_Industry</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Account_Record_Create</targetReference>
+        </connector>
+    </assignments>
+    <dynamicChoiceSets>
+        <name>Account_Industry</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Industry</picklistField>
+        <picklistObject>Account</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Account_Type</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Type</picklistField>
+        <picklistObject>Account</picklistObject>
+    </dynamicChoiceSets>
+    <interviewLabel>Fast Create Account {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Fast Create Account</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Account_Record_Create</name>
+        <label>Account Record Create</label>
+        <locationX>283</locationX>
+        <locationY>420</locationY>
+        <connector>
+            <targetReference>Thank_You</targetReference>
+        </connector>
+        <inputReference>AccountObject</inputReference>
+    </recordCreates>
+    <screens>
+        <name>Account_verify_Details</name>
+        <label>Account verify Details</label>
+        <locationX>276</locationX>
+        <locationY>207</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Account_Object_Assignment</targetReference>
+        </connector>
+        <fields>
+            <name>Accountverifytext</name>
+            <fieldText>Before i submit this account record, please verify the information below
+
+Account Name:{!Account_Name}
+
+Account Site:{!Account_Site}
+
+Account Phone:{!Phone}
+
+Account Type:{!Account_Type}
+
+Account Industry:{!Account_Industry}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Introduction_Screen</name>
+        <label>Introduction Screen</label>
+        <locationX>274</locationX>
+        <locationY>112</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Account_verify_Details</targetReference>
+        </connector>
+        <fields>
+            <name>Intro_Text</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Hello Sir/Madam,&lt;/B&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Please provide us with the following details:&lt;/B&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Account_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Account Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Account_Site</name>
+            <dataType>String</dataType>
+            <fieldText>Account Site</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Type_Account</name>
+            <choiceReferences>Account_Type</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Type Account</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Industry_Account</name>
+            <choiceReferences>Account_Industry</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Industry Account</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Phone</name>
+            <dataType>String</dataType>
+            <fieldText>Phone</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Thank_You</name>
+        <label>Thank You</label>
+        <locationX>289</locationX>
+        <locationY>524</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Thank_you_txt</name>
+            <fieldText>Thank you for your business. We have successfully created account.</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <startElementReference>Introduction_Screen</startElementReference>
+    <status>Draft</status>
+    <variables>
+        <name>AccountObject</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+</Flow>

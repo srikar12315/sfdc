@@ -1,0 +1,5 @@
+<aura:component >
+This component include other component 
+    <c:nestedcomponentsub1 />
+    <c:nestedcomponentsub2 whom="component composition"/>
+</aura:component>

@@ -1,0 +1,50 @@
+<apex:page controller="StudentList">
+    
+    <apex:form >
+    <apex:pageBlock title="Student Data">
+        <apex:pageBlockButtons >
+        <apex:commandButton value="Submit" action="{!submit}"/>
+        <apex:commandButton value="Addrow" action="{!addRows}"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockTable value="{!stds}" var="a">
+            <apex:column >
+            <apex:facet name="header"><apex:inputCheckbox /></apex:facet>
+            <apex:inputCheckbox value="{!a.flag}"/>
+            </apex:column>
+            <apex:column headerValue="Student Name">
+                <apex:inputText value="{!a.name}"/>
+            
+            </apex:column>
+             <apex:column headerValue="Student Branch">
+                <apex:inputText value="{!a.branch}"/>
+            
+            </apex:column>
+        
+        </apex:pageBlockTable>
+        
+        
+    </apex:pageBlock>
+    
+        <apex:pageBlock title="Student Data" rendered="{! !ISNULL(selected)}">
+       
+            
+        <apex:pageBlockTable value="{!selected}" var="a">
+            
+            
+            <apex:column headerValue="Student Name">
+                <apex:outputtext value="{!a.name}"/>
+            
+            </apex:column>
+             <apex:column headerValue="Student Branch">
+                <apex:outputtext value="{!a.branch}"/>
+            
+            </apex:column>
+        
+        </apex:pageBlockTable>
+        
+        
+    </apex:pageBlock>
+    
+    
+    </apex:form>
+</apex:page>

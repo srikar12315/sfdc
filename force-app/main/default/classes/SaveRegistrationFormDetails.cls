@@ -1,0 +1,18 @@
+public class SaveRegistrationFormDetails {
+    
+    @AuraEnabled
+    public static id SaveRegistrationDetail(Registration_Form__c regForm ){
+     // DML operation to save RegForm Details   
+     insert regForm;
+     return regForm.id; 
+    }
+    
+     @AuraEnabled
+    public static id SaveEducationalDetails(Educational_Details__c EduDet){
+        
+     // DML operation to save EduDet              
+     insert EduDet ;
+     return EduDet.id; 
+    }
+
+}

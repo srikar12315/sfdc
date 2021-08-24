@@ -1,0 +1,27 @@
+<apex:page controller="myclass" >
+    <apex:form id="fm">
+        <apex:pageBlock >
+        <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Select" reRender="pb,fm"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">     
+                <apex:pageblocktable value="{!records }" var="wrapper" id="pb" >
+                    <apex:column width="25px">                        
+                        <apex:inputCheckbox value="{!wrapper.isSelected}"/>
+                    </apex:column>
+                    <apex:column value="{!wrapper.type}"/>
+                    <apex:column value="{!wrapper.id}"/>
+                    <apex:column value="{!wrapper.name}"/>
+                    <apex:column value="{!wrapper.email}"/>
+                    <apex:column value="{!wrapper.phone}"/>
+                </apex:pageblocktable>
+                <apex:panelGrid columns="7">
+                    <apex:commandButton status="fetchStatus" reRender="pb" value="first" action="{!first}" disabled="{!!hasPrevious}" title="First Page"/>
+                    <apex:commandButton status="fetchStatus" reRender="pb" value="previous" action="{!previous}" disabled="{!!hasPrevious}" title="Previous Page"/>
+                    <apex:commandButton status="fetchStatus" reRender="pb" value="Next" action="{!next}" disabled="{!!hasNext}" title="Next Page"/>
+                    <apex:commandButton status="fetchStatus" reRender="pb" value="Last" action="{!last}" disabled="{!!hasNext}" title="Last Page"/>
+                </apex:panelGrid>
+            </apex:pageBlockSection>
+       </apex:pageBlock>
+   </apex:form>
+</apex:page>

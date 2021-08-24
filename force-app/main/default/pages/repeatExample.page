@@ -1,0 +1,27 @@
+<apex:page standardController="Account" recordSetVar="items">
+
+<apex:pageblock title="Repeat Example">
+
+<table style="width:300px;">
+<tr style="background:yellow;">
+<td>Name</td>
+<td>Phone</td>
+</tr>
+<apex:repeat value="{!items}" var="a">
+<tr >
+
+<td>{!a.name}</td>
+<td>{!a.phone}</td>
+
+</tr>
+</apex:repeat>
+
+</table>
+
+
+
+
+
+</apex:pageblock>
+  
+</apex:page>

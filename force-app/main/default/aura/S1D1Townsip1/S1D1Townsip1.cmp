@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<p>This text is from state 1 District 1 Township 1 .</p>
+       <aura:registerEvent name="LowPriorityComplaintFromTownship1" type="c:ComponentEventWithComplaintMsg" />
+     <aura:registerEvent name="MediumPriorityComplaintFromTownship1" type="c:ComponentEventWithComplaintMsg" />
+     <aura:registerEvent name="HighPriorityComplaintFromTownship1" type="c:ComponentEventWithComplaintMsg" />
+    <lightning:button  label="Submit My LP Complaints" aura:id="LPB" name="LPComplaintB" onclick="{!c.forwardLPComplaint}" /><br/><br/>
+    <lightning:button  label="Submit My MP Complaints" aura:id="MPB" name="MPComplaintB" onclick="{!c.forwardMPComplaint}" /><br/><br/>
+    <lightning:button  label="Submit My HP Complaints" aura:id="HPB" name="HPComplaintB" onclick="{!c.forwardHPComplaint}" />
+</aura:component>

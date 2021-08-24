@@ -1,0 +1,35 @@
+<apex:page controller="ActionExample">
+  <apex:form >
+  <script>
+  function show(){
+  call();
+  }
+  </script>
+    <apex:pageblock title="Action Support">
+      
+       <apex:inputtext value="{!name}" >
+       <apex:actionSupport event="onchange" action="{!callsupport}" reRender="one" status="status1"/>
+       </apex:inputtext>
+    </apex:pageblock>
+  
+  <apex:pageblock title="Action Function">
+      
+       <apex:inputtext value="{!name}" onchange="show()"/>
+       <apex:actionFunction name="call" action="{!callsupport}" reRender="one" />
+      
+    </apex:pageblock>
+  
+  <apex:pageblock id="one">
+  {!result}
+  
+  </apex:pageblock>
+  
+  
+  <apex:pageblock >
+  
+  <apex:actionStatus startText="Loading......"  id="status1"/>
+  
+  </apex:pageblock>
+  
+  </apex:form>
+</apex:page>
