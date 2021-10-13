@@ -59,8 +59,6 @@ public class FreshDeskUtil {
          System.debug(System.LoggingLevel.DEBUG,'Exeception Executed'+errorMessage);
 
         }
-
-
     }
 
     public static void createTicket(String sub, String email, String description, Integer priorty, Integer status, Integer source){
@@ -104,7 +102,7 @@ public class FreshDeskUtil {
    
         if(response.getStatusCode() == 201){
             String body = response.getBody();
-           System.debug(System.LoggingLevel.DEBUG, 'Responsefrom the Server'+body);
+           System.debug(System.LoggingLevel.DEBUG, 'Response from the Server :'+ body);
         }else{
             errorMessage =' Unexpected Error while communicating with the API. '
             +' Status '+response.getStatus() +' and status Code ' +response.getStatusCode();
@@ -122,11 +120,64 @@ public class FreshDeskUtil {
          System.debug(System.LoggingLevel.DEBUG,'Exeception Executed'+errorMessage);
 
         }
+    }
+
+    public static void listAllContacts(){
+        String errorMessage ='';
+        String endPoint = CONTACT_ENDPOINT;
+        String cred= System.Label.FreshDesk; 
+        
+        Http http = new Http();
+        HttpRequest request = new HttpRequest();
+        request.setMethod('GET');
+        request.setEndpoint(endpoint);
+        request.setHeader('Content-Type', 'application/json');
+        request.setHeader('Authorization', 'Basic '+EncodingUtil.base64Encode(Blob.valueOf(cred)));
+        HttpResponse response = new HttpResponse();
+
+        try{
+           response = http.send(request);
+           if(response.getStatusCode() == 200){
+               String responseBody = response.getBody();
+               System.debug(System.LoggingLevel.DEBUG, 'Response From Body : ' + responseBody);
+               List<freshDeskAllContact> allcontact = (Lis<freshDeskAllContact>)System.JSON.deserialize(responseBody, List<freshDeskAllContact>.class);
+               for(freshDeskAllContact contact: allcontact){
+                   
+               }
+           }else{
+               errorMessage = 'Unexpected Error while communicating with API. '
+               + 'Status' + response.getStatus() + 'and the status Code :'+ response.getStatusCode();
+               System.debug(System.LoggingLevel.DEBUG, 'Exception :' + errorMessage);
+
+           }
+
+        }catch(system.Exception e){
+            if(String.valueOf(e.getMessage()).startsWith('Unauthorized endpoint')){
+                errorMessage= 'Unauthorized endpoint: Admin must go to setup  -> Administer -> Security Control -> '
+                +'Remote Site Setting and add'+ '' + endPoint + 'endpoint';
+                System.debug(System.LoggingLevel.DEBUG, 'Exception :' + errorMessage);
+            }else{
+
+                errorMessage = 'Unexpected Error while communicating with API. '
+               + 'Status' + response.getStatus() + 'and the status Code :'+ response.getStatusCode();
+               System.debug(System.LoggingLevel.DEBUG, 'Exception :' + errorMessage);
+            }
 
 
+        }
+
+
+         
 
     }
 
+    public static void listAllTickets(){
+
+    }
+
+    public static void listAllContactTickets(){
+
+    }
 
 
 
